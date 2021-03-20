@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Shopping">
+  <ClassDiagramComponents>
+    <Class name="Grocery" package="Shopping" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="category" type="String" visibility="private"/>
+        <Field name="aisle" type="int" visibility="private"/>
+        <Field name="price" type="float" visibility="private"/>
+        <Field name="quantity" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="category"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="category"/>
+          <Argument type="int" name="aisle"/>
+          <Argument type="float" name="price"/>
+          <Argument type="int" name="quantity"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Grocery" name="another"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getCategory" returnType="String" visibility="public"/>
+        <Method name="setCategory" returnType="void" visibility="public">
+          <Argument type="String" name="category"/>
+        </Method>
+        <Method name="getAisle" returnType="int" visibility="public"/>
+        <Method name="setAisle" returnType="void" visibility="public">
+          <Argument type="int" name="aisle"/>
+        </Method>
+        <Method name="getPrice" returnType="float" visibility="public"/>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="float" name="price"/>
+        </Method>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Grocery" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ShoppingListArray" package="Shopping" visibility="public" xPosition="533.0" yPosition="463.0">
+      <Fields>
+        <Field name="DEFAULT_SIZE" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="shoppingList" type="Grocery[]" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="filename"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="find" returnType="Grocery" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Grocery" name="entry"/>
+        </Method>
+        <Method name="remove" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="indexOf" returnType="int" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="combineQuantity" returnType="void" visibility="private">
+          <Argument type="Grocery" name="entry"/>
+        </Method>
+        <Method name="scanFile" returnType="void" visibility="private">
+          <Argument type="String" name="filename"/>
+        </Method>
+        <Method name="expandCapacity" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ShoppingListArrayList" package="Shopping" visibility="public" xPosition="984.0" yPosition="348.0">
+      <Fields>
+        <Field name="shoppingList" type="ArrayList&lt;Grocery&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="filename"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Grocery" name="entry"/>
+        </Method>
+        <Method name="remove" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="find" returnType="Grocery" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="indexOf" returnType="int" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="combineQuantity" returnType="void" visibility="private">
+          <Argument type="Grocery" name="entry"/>
+        </Method>
+        <Method name="scanFile" returnType="void" visibility="private">
+          <Argument type="String" name="filename"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ShoppingSimulation" package="Shopping" visibility="public" xPosition="105.0" yPosition="617.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ShoppingListADT" package="Shopping" visibility="public" xPosition="631.0" yPosition="85.0">
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Grocery" name="entry"/>
+        </Method>
+        <Method name="remove" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="find" returnType="Grocery" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="indexOf" returnType="int" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Grocery" name="ent"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Shopping.ShoppingListArray" target="Shopping.Grocery" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Shopping.ShoppingListArrayList" target="Shopping.ShoppingListADT"/>
+    <UseRelation source="Shopping.ShoppingListADT" target="Shopping.Grocery" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Shopping.Grocery" target="Shopping.Grocery" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="shoppingList" source="Shopping.ShoppingListArrayList" target="Shopping.Grocery" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Grocery&gt;"/>
+    <UseRelation source="Shopping.ShoppingListArrayList" target="Shopping.Grocery" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Shopping.ShoppingListArray" target="Shopping.ShoppingListADT"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

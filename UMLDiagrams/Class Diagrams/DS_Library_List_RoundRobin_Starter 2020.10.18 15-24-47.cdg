@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="DS_Library_List_RoundRobin_Starter">
+  <ClassDiagramComponents>
+    <Class name="Events" package="Apps" visibility="public" xPosition="38.0" yPosition="474.0">
+      <Fields>
+        <Field name="JOB_ENTER" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="JOB_FINISH" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="QUANTUM_EXPIRE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="NUM_EVENTS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="eventTime" type="int[]" visibility="private"/>
+        <Field name="testFile" type="BufferedReader" visibility="private"/>
+        <Field name="quantum" type="int" visibility="private"/>
+        <Field name="nextJob" type="Job" visibility="private"/>
+        <Field name="time" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferedReader" name="file"/>
+          <Argument type="int" name="quantum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNextEvent" returnType="int" visibility="public">
+          <Argument type="Job" name="job"/>
+        </Method>
+        <Method name="getJob" returnType="Job" visibility="public"/>
+        <Method name="buildNextJob" returnType="Job" visibility="public"/>
+        <Method name="newQuantum" returnType="void" visibility="public"/>
+        <Method name="getTime" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Job" package="Apps" visibility="public" xPosition="400.0" yPosition="474.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="startTime" type="int" visibility="private"/>
+        <Field name="totalTime" type="int" visibility="private"/>
+        <Field name="runTime" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="line"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getStart" returnType="int" visibility="public"/>
+        <Method name="getRemaining" returnType="int" visibility="public"/>
+        <Method name="updateRunTime" returnType="void" visibility="public">
+          <Argument type="int" name="lastRunTime"/>
+        </Method>
+        <Method name="clone" returnType="Object" visibility="public"/>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Job" name="another"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Scheduler" package="Apps" visibility="public" xPosition="496.0" yPosition="5.0">
+      <Fields>
+        <Field name="QUANTUM" type="int" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="mainLoop" returnType="void" visibility="private" isStatic="true">
+          <Argument type="Events" name="events"/>
+          <Argument type="CircularDoublyLinkedList&lt;Job&gt;" name="list"/>
+        </Method>
+        <Method name="printCurrentState" returnType="void" visibility="private" isStatic="true">
+          <Argument type="CircularDoublyLinkedList&lt;Job&gt;" name="list"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CircularDoublyLinkedList" package="DataStructures" visibility="public" xPosition="753.0" yPosition="350.0">
+      <Fields>
+        <Field name="first" type="DoublyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="numNodes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="first" returnType="T" visibility="public"/>
+        <Method name="current" returnType="T" visibility="public"/>
+        <Method name="last" returnType="T" visibility="public"/>
+        <Method name="isEmpty" returnType="/**      * Examine whether the circular list is empty.     */ boolean" visibility="public"/>
+        <Method name="printList" returnType="void" visibility="public"/>
+        <Method name="addLast" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="addFirst" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="addAfter" returnType="void" visibility="public">
+          <Argument type="T" name="existing"/>
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="remove" returnType="T" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="removeFirst" returnType="T" visibility="public"/>
+        <Method name="removeLast" returnType="T" visibility="public"/>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="find" returnType="DoublyLinkedNode&lt;T&gt;" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="getNode" returnType="DoublyLinkedNode&lt;T&gt;" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="next" returnType="void" visibility="public"/>
+        <Method name="get" returnType="T" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DoublyLinkedNode" package="DataStructures" visibility="public" xPosition="964.0" yPosition="5.0">
+      <Fields>
+        <Field name="next" type="DoublyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="prev" type="DoublyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="element" type="T" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="T" name="elem"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNext" returnType="DoublyLinkedNode&lt;T&gt;" visibility="public"/>
+        <Method name="setNext" returnType="void" visibility="public">
+          <Argument type="DoublyLinkedNode&lt;T&gt;" name="n"/>
+        </Method>
+        <Method name="getPrev" returnType="DoublyLinkedNode&lt;T&gt;" visibility="public"/>
+        <Method name="setPrev" returnType="void" visibility="public">
+          <Argument type="DoublyLinkedNode&lt;T&gt;" name="p"/>
+        </Method>
+        <Method name="getElement" returnType="T" visibility="public"/>
+        <Method name="setElement" returnType="void" visibility="public">
+          <Argument type="T" name="elem"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="CollectionADT" package="ADTs" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ListADT" package="ADTs" visibility="public" xPosition="220.0" yPosition="20.0">
+      <Methods>
+        <Method name="addFirst" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="addLast" returnType="void" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="addAfter" returnType="void" visibility="public">
+          <Argument type="T" name="existing"/>
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="remove" returnType="T" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="removeFirst" returnType="T" visibility="public"/>
+        <Method name="removeLast" returnType="T" visibility="public"/>
+        <Method name="first" returnType="T" visibility="public"/>
+        <Method name="last" returnType="T" visibility="public"/>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="T" name="element"/>
+        </Method>
+        <Method name="get" returnType="T" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="T" name="element"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Apps.Scheduler" target="DataStructures.CircularDoublyLinkedList" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nextJob" source="Apps.Events" target="Apps.Job" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ADTs.ListADT" target="ADTs.CollectionADT"/>
+    <UseRelation source="Apps.Events" target="Apps.Job" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="DataStructures.DoublyLinkedNode" target="DataStructures.DoublyLinkedNode" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="DataStructures.CircularDoublyLinkedList" target="DataStructures.DoublyLinkedNode" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DataStructures.CircularDoublyLinkedList" target="ADTs.ListADT"/>
+    <UseRelation source="Apps.Job" target="Apps.Job" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

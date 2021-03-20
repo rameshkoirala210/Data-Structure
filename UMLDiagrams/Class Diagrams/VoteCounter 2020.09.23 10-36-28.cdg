@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="VoteCounter">
+  <ClassDiagramComponents>
+    <Class name="ArrayListVoteCounter" package="votecounterproject" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="votes" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="spoiledVotes" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="sithSenateMembers" type="SithSenateMember[]" visibility="private"/>
+        <Field name="voteIndex" type="int" visibility="private"/>
+        <Field name="spoiledVoteIndex" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setupCandidates" returnType="void" visibility="private"/>
+        <Method name="recordVote" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="reportResults" returnType="void" visibility="public"/>
+        <Method name="expandCapacity" returnType="String[]" visibility="private">
+          <Argument type="String[]" name="myArray"/>
+        </Method>
+        <Method name="getSithSenateMemberVotes" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getVotes" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="getSpoiledVotes" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="runRandomElectionResults" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="generateRandomElectionData" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ArrayVoteCounter" package="votecounterproject" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="votes" type="String[]" visibility="private"/>
+        <Field name="spoiledVotes" type="String[]" visibility="private"/>
+        <Field name="sithSenateMembers" type="SithSenateMember[]" visibility="private"/>
+        <Field name="voteIndex" type="int" visibility="private"/>
+        <Field name="spoiledVoteIndex" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setupCandidates" returnType="void" visibility="private"/>
+        <Method name="recordVote" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="reportResults" returnType="void" visibility="public"/>
+        <Method name="expandCapacity" returnType="String[]" visibility="private">
+          <Argument type="String[]" name="myArray"/>
+        </Method>
+        <Method name="getMemberVotes" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getVoteIndex" returnType="int" visibility="public"/>
+        <Method name="getVotes" returnType="String[]" visibility="public"/>
+        <Method name="getSpoiledVotes" returnType="String[]" visibility="public"/>
+        <Method name="runRandomElectionResults" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="generateRandomElectionData" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="SithSenateMember" package="votecounterproject" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="surname" type="String" visibility="private"/>
+        <Field name="numVotes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="surname"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumVotes" returnType="int" visibility="public"/>
+        <Method name="addVote" returnType="void" visibility="public"/>
+        <Method name="getSurname" returnType="String" visibility="public"/>
+        <Method name="getFullName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VoteCounterProject" package="votecounterproject" visibility="public" xPosition="20.0" yPosition="439.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

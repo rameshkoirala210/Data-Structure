@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="CardGamesWars">
+  <ClassDiagramComponents>
+    <Interface name="QueueADT" package="ADTs" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="enqueue" returnType="void" visibility="public">
+          <Argument type="E" name="target"/>
+        </Method>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="dequeue" returnType="E" visibility="public"/>
+        <Method name="first" returnType="E" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="StackADT" package="ADTs" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Methods>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="peek" returnType="E" visibility="public"/>
+        <Method name="pop" returnType="E" visibility="public"/>
+        <Method name="push" returnType="void" visibility="public">
+          <Argument type="E" name="target"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Card" package="Apps" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="SPADES" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="HEARTS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIAMONDS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CLUBS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ACE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="JACK" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="QUEEN" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="KING" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="rank" type="int" visibility="private"/>
+        <Field name="suit" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="rank"/>
+          <Argument type="int" name="suit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="that"/>
+        </Method>
+        <Method name="getRank" returnType="int" visibility="public"/>
+        <Method name="getSuit" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Deck" package="Apps" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="cards" type="Card[]" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="deal" returnType="Card" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="shuffle" returnType="void" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="swap" returnType="void" visibility="protected">
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WarByArrays" package="Apps" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="hand1" type="QueueADT&lt;Card&gt;" visibility="private"/>
+        <Field name="hand2" type="QueueADT&lt;Card&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="isShuffled"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="give" returnType="void" visibility="public">
+          <Argument type="StackADT&lt;Card&gt;" name="stack1"/>
+          <Argument type="StackADT&lt;Card&gt;" name="stack2"/>
+          <Argument type="QueueADT&lt;Card&gt;" name="winner"/>
+        </Method>
+        <Method name="play" returnType="void" visibility="public"/>
+        <Method name="playRound" returnType="void" visibility="public"/>
+        <Method name="settledByWar" returnType="boolean" visibility="public">
+          <Argument type="StackADT&lt;Card&gt;" name="stack1"/>
+          <Argument type="StackADT&lt;Card&gt;" name="stack2"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WarByLinkedLists" package="Apps" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="INPUT" type="Scanner" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="hand1" type="QueueADT&lt;Card&gt;" visibility="private"/>
+        <Field name="hand2" type="QueueADT&lt;Card&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="isShuffled"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="give" returnType="void" visibility="public">
+          <Argument type="StackADT&lt;Card&gt;" name="stack1"/>
+          <Argument type="StackADT&lt;Card&gt;" name="stack2"/>
+          <Argument type="QueueADT&lt;Card&gt;" name="winner"/>
+        </Method>
+        <Method name="play" returnType="void" visibility="public"/>
+        <Method name="playRound" returnType="void" visibility="public"/>
+        <Method name="settledByWar" returnType="boolean" visibility="public">
+          <Argument type="StackADT&lt;Card&gt;" name="stack1"/>
+          <Argument type="StackADT&lt;Card&gt;" name="stack2"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ArrayCircularQueue" package="DataStructures" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="DEFAULT_CAPACITY" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="data" type="E[]" visibility="private"/>
+        <Field name="front" type="int" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="enqueue" returnType="void" visibility="public">
+          <Argument type="E" name="target"/>
+        </Method>
+        <Method name="dequeue" returnType="E" visibility="public"/>
+        <Method name="expandCapacity" returnType="void" visibility="protected"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="isFull" returnType="boolean" visibility="protected"/>
+        <Method name="first" returnType="E" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArrayStack" package="DataStructures" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="DEFAULT_CAPACITY" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="data" type="E[]" visibility="private"/>
+        <Field name="top" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="push" returnType="void" visibility="public">
+          <Argument type="E" name="target"/>
+        </Method>
+        <Method name="expandCapacity" returnType="void" visibility="protected"/>
+        <Method name="pop" returnType="E" visibility="public"/>
+        <Method name="peek" returnType="E" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="isFull" returnType="boolean" visibility="protected"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LinkedQueue" package="DataStructures" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="front" type="SinglyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="rear" type="SinglyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="enqueue" returnType="void" visibility="public">
+          <Argument type="T" name="target"/>
+        </Method>
+        <Method name="dequeue" returnType="T" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="first" returnType="T" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LinkedStack" package="DataStructures" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="top" type="SinglyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="push" returnType="void" visibility="public">
+          <Argument type="T" name="target"/>
+        </Method>
+        <Method name="pop" returnType="T" visibility="public"/>
+        <Method name="peek" returnType="T" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SinglyLinkedNode" package="DataStructures" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="next" type="SinglyLinkedNode&lt;T&gt;" visibility="private"/>
+        <Field name="element" type="T" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="T" name="elem"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNext" returnType="SinglyLinkedNode&lt;T&gt;" visibility="public"/>
+        <Method name="setNext" returnType="void" visibility="public">
+          <Argument type="SinglyLinkedNode&lt;T&gt;" name="node"/>
+        </Method>
+        <Method name="getElement" returnType="T" visibility="public"/>
+        <Method name="setElement" returnType="void" visibility="public">
+          <Argument type="T" name="elem"/>
+        </Method>
+        <Method name="printNodeData" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EmptyCollectionException" package="Exceptions" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="textMsg"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="IllegalMoveException" package="Exceptions" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Apps.WarByArrays" target="Apps.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="hand1" source="Apps.WarByArrays" target="Apps.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="QueueADT&lt;Card&gt;"/>
+    <HasRelation name="hand2" source="Apps.WarByLinkedLists" target="Apps.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="QueueADT&lt;Card&gt;"/>
+    <HasRelation name="hand2" source="Apps.WarByArrays" target="Apps.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="QueueADT&lt;Card&gt;"/>
+    <UseRelation source="Apps.WarByLinkedLists" target="Apps.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DataStructures.LinkedQueue" target="ADTs.QueueADT"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DataStructures.ArrayStack" target="ADTs.StackADT"/>
+    <HasRelation name="hand1" source="Apps.WarByLinkedLists" target="Apps.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="QueueADT&lt;Card&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DataStructures.ArrayCircularQueue" target="ADTs.QueueADT"/>
+    <UseRelation source="Apps.Deck" target="Apps.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DataStructures.LinkedStack" target="ADTs.StackADT"/>
+    <UseRelation source="DataStructures.SinglyLinkedNode" target="DataStructures.SinglyLinkedNode" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

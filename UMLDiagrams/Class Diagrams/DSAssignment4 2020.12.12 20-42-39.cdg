@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="DSAssignment4">
+  <ClassDiagramComponents>
+    <Class name="LinkedTree" package="pyramid_scheme" visibility="public" xPosition="177.0" yPosition="20.0">
+      <Fields>
+        <Field name="root" type="MultiTreeNode&lt;T&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="T" name="startElem"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="startNode"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getRootElement" returnType="T" visibility="public"/>
+        <Method name="getRootNode" returnType="MultiTreeNode&lt;T&gt;" visibility="private"/>
+        <Method name="addChild" returnType="void" visibility="public">
+          <Argument type="T" name="parent"/>
+          <Argument type="T" name="child"/>
+        </Method>
+        <Method name="addChild" returnType="void" visibility="protected">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="parentNode"/>
+          <Argument type="T" name="child"/>
+        </Method>
+        <Method name="findNode" returnType="MultiTreeNode&lt;T&gt;" visibility="public">
+          <Argument type="T" name="target"/>
+        </Method>
+        <Method name="findNode" returnType="MultiTreeNode&lt;T&gt;" visibility="private">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="node"/>
+          <Argument type="T" name="target"/>
+        </Method>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="T" name="target"/>
+        </Method>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="countDown" returnType="int" visibility="private">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="node"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="node"/>
+        </Method>
+        <Method name="leafCounter" returnType="int" visibility="public"/>
+        <Method name="leafCounter" returnType="int" visibility="public">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="node"/>
+        </Method>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MultiTreeNode" package="pyramid_scheme" visibility="public" xPosition="281.0" yPosition="461.0">
+      <Fields>
+        <Field name="element" type="T" visibility="private"/>
+        <Field name="children" type="ArrayList&lt;MultiTreeNode&lt;T&gt;&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="T" name="elem"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addChild" returnType="void" visibility="public">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="child"/>
+        </Method>
+        <Method name="removeChild" returnType="void" visibility="public">
+          <Argument type="MultiTreeNode&lt;T&gt;" name="child"/>
+        </Method>
+        <Method name="getNumChildren" returnType="int" visibility="public"/>
+        <Method name="getChild" returnType="MultiTreeNode&lt;T&gt;" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="getChildren" returnType="ArrayList&lt;MultiTreeNode&lt;T&gt;&gt;" visibility="public"/>
+        <Method name="getElement" returnType="T" visibility="public"/>
+        <Method name="setElement" returnType="void" visibility="public">
+          <Argument type="T" name="elem"/>
+        </Method>
+        <Method name="isLeaf" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Person" package="pyramid_scheme" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="balance" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="n"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="n"/>
+          <Argument type="double" name="bal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getBalance" returnType="double" visibility="public"/>
+        <Method name="adjustBalance" returnType="void" visibility="public">
+          <Argument type="double" name="amount"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Person" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PyramidScheme" package="pyramid_scheme" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="recruitPrice" type="double" visibility="private"/>
+        <Field name="paidUp" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Person" name="startElem"/>
+        </Constructor>
+        <Constructor visibility="package">
+          <Argument type="Person" name="startElem"/>
+          <Argument type="double" name="rPrice"/>
+          <Argument type="double" name="pUp"/>
+        </Constructor>
+        <Constructor visibility="package">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="startNode"/>
+        </Constructor>
+        <Constructor visibility="package">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="startNode"/>
+          <Argument type="double" name="rPrice"/>
+          <Argument type="double" name="pUp"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="whoBenefits" returnType="ArrayList&lt;MultiTreeNode&lt;Person&gt;&gt;" visibility="public">
+          <Argument type="Person" name="sucker"/>
+        </Method>
+        <Method name="whoBenefits" returnType="ArrayList&lt;MultiTreeNode&lt;Person&gt;&gt;" visibility="public">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="sucker"/>
+        </Method>
+        <Method name="findNodeChain" returnType="ArrayList&lt;MultiTreeNode&lt;Person&gt;&gt;" visibility="private">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="node"/>
+          <Argument type="Person" name="target"/>
+        </Method>
+        <Method name="findNodeChain" returnType="boolean" visibility="private">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="node"/>
+          <Argument type="Person" name="target"/>
+          <Argument type="ArrayList&lt;MultiTreeNode&lt;Person&gt;&gt;" name="list"/>
+        </Method>
+        <Method name="addChild" returnType="void" visibility="public">
+          <Argument type="Person" name="recruiter"/>
+          <Argument type="Person" name="recruit"/>
+        </Method>
+        <Method name="addChild" returnType="void" visibility="public">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="recruiter"/>
+          <Argument type="Person" name="recruit"/>
+        </Method>
+        <Method name="payUp" returnType="void" visibility="private">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="moneyMaker"/>
+          <Argument type="double" name="moneyMade"/>
+        </Method>
+        <Method name="initiateCollapse" returnType="void" visibility="public"/>
+        <Method name="collapse" returnType="int" visibility="private">
+          <Argument type="MultiTreeNode&lt;Person&gt;" name="personNode"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PyramidSchemeSim" package="pyramid_scheme" visibility="public" xPosition="920.0" yPosition="562.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="pyramid_scheme.LinkedTree" target="pyramid_scheme.MultiTreeNode" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pyramid_scheme.PyramidScheme" target="pyramid_scheme.LinkedTree"/>
+    <UseRelation source="pyramid_scheme.MultiTreeNode" target="pyramid_scheme.MultiTreeNode" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pyramid_scheme.Person" target="pyramid_scheme.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pyramid_scheme.PyramidScheme" target="pyramid_scheme.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
